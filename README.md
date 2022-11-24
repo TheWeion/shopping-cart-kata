@@ -4,7 +4,7 @@
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![GNU3 License][license-shield]][license-url]
+[![GPL-3.0 License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
 
@@ -261,7 +261,7 @@ Receipt of the shopping order (console output).
 <!-- LICENSE -->
 ## License
 
-Distributed under the GNU License. See `LICENSE.txt` for more information.
+Distributed under the GNU License. See `LICENSE` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -276,6 +276,6 @@ Distributed under the GNU License. See `LICENSE.txt` for more information.
 [issues-shield]: https://img.shields.io/github/issues/theweion/shopping-cart-kata.svg?style=for-the-badge
 [issues-url]: https://github.com/theweion/shopping-cart-kata/issues
 [license-shield]: https://img.shields.io/github/license/theweion/shopping-cart-kata.svg?style=for-the-badge
-[license-url]: https://github.com/theweion/shopping-cart-kata/blob/master/LICENSE.txt
+[license-url]: https://github.com/theweion/shopping-cart-kata/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/terryfallows
