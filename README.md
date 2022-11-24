@@ -20,14 +20,14 @@
   <p align="center">
     A set of functions which will process a shopping cart and output a reciept to the console.
     <br />
-    <a href="https://github.com/TheWeion/Q1-quiz-game"><strong>Explore the docs »</strong></a>
+    <a href="https://github.com/TheWeion/shopping-cart-kata"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/TheWeion/Q1-quiz-game">View Demo</a>
+    <a href="https://github.com/TheWeion/shopping-cart-kata">View Demo</a>
     ·
-    <a href="https://github.com/TheWeion/Q1-quiz-game/issues">Report Bug</a>
+    <a href="https://github.com/TheWeion/shopping-cart-kata/issues">Report Bug</a>
     ·
-    <a href="https://github.com/TheWeion/Q1-quiz-game/issues">Request Feature</a>
+    <a href="https://github.com/TheWeion/shopping-cart-kata/issues">Request Feature</a>
   </p>
 </div>
 
@@ -55,12 +55,6 @@
         <li><a href="#npm-commands">npm Commands</a></li>
         <li>
           <a href="#functions">Functions</a>
-          <ul>
-            <li><a href="#findProductBySKU">findProductBySKU</a></li>
-            <li><a href="#calculateItem">calculateItem</a></li>
-            <li><a href="#calculateSubTotal">calculateSubTotal</a></li>
-            <li><a href="#initCheckout">initCheckout</a></li>
-          </ul>
         </li>
       </ul>
     </li>
@@ -199,70 +193,6 @@ npm run coverage
 ```
 
 ### Functions
-#### findProductBySKU
-
-```js
-findProductBySKU(sku, idx)
-```
-
-##### Description
-
-This function will locate each product from it's SKU and compare it to the ```code``` object located in the cart dataset.
-
-##### Parameters
-* ```sku``` - Stock Keeping Unit, the product ID that identifies the product.
-* ```idx``` - The index used to track the product(s) in the cart.
-
-#### calculateItem
-
-```js
-calculateItem({ basePrice, discount }, quantity, idx)
-```
-
-##### Description
-
-This function calculates the items in the cart with additional checks to check for and apply discounts.
-
-##### Parameters
-* ```basePrice``` - Records the Base Price of the product.
-* ```discount``` - Pulls the discount object from the ```inventoryData``` for each product.
-* ```quantity``` - of the products.
-* ```idx``` - The index used to track the product(s) in the cart.
-
-##### Output
-Itemised total of each product as an Integer.
-
-#### calculateSubTotal
-
-```js
-calculateSubTotal(cart)
-```
-
-##### Description
-
-This function adds the total value of each item in the itemised cart.
-
-##### Parameters
-* ```cart``` - Object containing itemised shopping cart.
-
-#### Output
-Subtotal of the cart as an Integer.
-
-#### initCheckout
-
-```js
-initCheckout(cart)
-```
-
-##### Description
-
-This function processes the user's cart based on the inventory data and then prints a receipt to the console with the itemised total and subtotal.
-
-##### Parameters
-* ```cart``` - Array of objects containing the user's cart.
-
-##### Output
-Receipt of the shopping order (console output).
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -277,15 +207,15 @@ Distributed under the GNU License. See `LICENSE.txt` for more information.
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/theweion/Q1-quiz-game.svg?style=for-the-badge
-[contributors-url]: https://github.com/theweion/Q1-quiz-game/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/theweion/Q1-quiz-game.svg?style=for-the-badge
-[forks-url]: https://github.com/theweion/Q1-quiz-game/network/members
-[stars-shield]: https://img.shields.io/github/stars/theweion/Q1-quiz-game.svg?style=for-the-badge
-[stars-url]: https://github.com/theweion/Q1-quiz-game/stargazers
-[issues-shield]: https://img.shields.io/github/issues/theweion/Q1-quiz-game.svg?style=for-the-badge
-[issues-url]: https://github.com/theweion/Q1-quiz-game/issues
-[license-shield]: https://img.shields.io/github/license/theweion/Q1-quiz-game.svg?style=for-the-badge
-[license-url]: https://github.com/theweion/Q1-quiz-game/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/theweion/shopping-cart-kata.svg?style=for-the-badge
+[contributors-url]: https://github.com/theweion/shopping-cart-kata/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/theweion/shopping-cart-kata.svg?style=for-the-badge
+[forks-url]: https://github.com/theweion/shopping-cart-kata/network/members
+[stars-shield]: https://img.shields.io/github/stars/theweion/shopping-cart-kata.svg?style=for-the-badge
+[stars-url]: https://github.com/theweion/shopping-cart-kata/stargazers
+[issues-shield]: https://img.shields.io/github/issues/theweion/shopping-cart-kata.svg?style=for-the-badge
+[issues-url]: https://github.com/theweion/shopping-cart-kata/issues
+[license-shield]: https://img.shields.io/github/license/theweion/shopping-cart-kata.svg?style=for-the-badge
+[license-url]: https://github.com/theweion/shopping-cart-kata/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/terryfallows

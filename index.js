@@ -5,7 +5,8 @@
 
 
 // ─── Imports ─────────────────────────────────────────────────────────────────
+import { initCheckout } from './helpers/checkout.js';
 import { cartData } from './db/cart.js';
 // ─────────────────────────────────────────────────────────────────────────────
 
-initCheckout(cartData); 
+initCheckout(cartData);
