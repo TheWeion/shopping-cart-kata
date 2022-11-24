@@ -51,6 +51,12 @@
         <li><a href="#npm-commands">npm Commands</a></li>
         <li>
           <a href="#functions">Functions</a>
+          <ul>
+            <li><a href="#findproductbysku">findProductBySKU</a></li>
+            <li><a href="#calculateitem">calculateItem</a></li>
+            <li><a href="#calculatesubtotal">calculateSubTotal</a></li>
+            <li><a href="#initcheckout">initCheckout</a></li>
+          </ul>
         </li>
       </ul>
     </li>
