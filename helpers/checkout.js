@@ -7,10 +7,10 @@
 import { inventoryData } from "../db/inventory.js";
 // ─────────────────────────────────────────────────────────────────────────────
 
-
+// ─── Helper Functions ────────────────────────────────────────────────────────
 export function findProductBySKU(sku, idx) {
-	if (!sku) { throw new Error("SKU is required"); }
-	if (typeof sku !== "string") { throw new Error(`Error at index ${idx}: SKU must be a string`); }
+	if (!sku) { throw new Error(`Error at index ${idx}: Please define a Product SKU.`); }
+	if (typeof sku !== "string") { throw new Error(`Error at index ${idx}: SKU must be a string.`); }
 
 	try {
 		const productManifest = inventoryData.find((product) => product.sku === sku);
@@ -25,6 +25,7 @@ export function findProductBySKU(sku, idx) {
 }
 
 export function calculateItem({ basePrice, discount }, quantity, idx) {
+	if (typeof basePrice !== "number") { throw new Error(`Error at index ${idx}: Base Price must be a number.`); }
 	try {
 		// Check if discountPrice has a minQuantity
 		if (discount.minQuantity && quantity >= discount.minQuantity) {
@@ -52,17 +53,19 @@ export function calculateItem({ basePrice, discount }, quantity, idx) {
 }
 
 export function calculateSubTotal(cart) {
+	if (!cart) { throw new Error("Cart is not valid or empty, please add items to your cart."); }
 	try {
 		const subTotal = cart.reduce((acc, curr) => acc + curr.price, 0);
 		return subTotal;
 	} catch (error) {
 		if (error instanceof TypeError) {
-			throw new TypeError("Cart must be an array");
+			throw new TypeError("Cart is required.");
 		} else {
-			throw new Error("Cart is not valid or empty, please add items to your cart.");
+			throw new Error(`Error: ${error.message}`);
 		}
 	}
 }
+// ─────────────────────────────────────────────────────────────────────────────
 
 export function initCheckout(cart) {
 	const currency = new Intl.NumberFormat('en-GB', {

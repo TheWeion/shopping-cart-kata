@@ -10,10 +10,6 @@
 
 <!-- PROJECT LOGO -->
 <br />
-<div align="center">
-  <a href="https://github.com/github_username/Q1-quiz-game">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
 
 <h3 align="center">Shopping Cart Kata</h3>
 
@@ -162,7 +158,7 @@ Implemetation of a simple checkout system that can consume a data source, and re
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/TheWeion/repo_name.git
+   git clone https://github.com/TheWeion/shopping-cart-kata.git
    ```
 2. Install NPM packages
    ```sh
@@ -193,6 +189,70 @@ npm run coverage
 ```
 
 ### Functions
+#### findProductBySKU
+
+```js
+findProductBySKU(sku, idx)
+```
+
+##### Description
+
+This function will locate each product from it's SKU and compare it to the ```code``` object located in the cart dataset.
+
+##### Parameters
+* ```sku``` - Stock Keeping Unit, the product ID that identifies the product.
+* ```idx``` - The index used to track the product(s) in the cart.
+
+#### calculateItem
+
+```js
+calculateItem({ basePrice, discount }, quantity, idx)
+```
+
+##### Description
+
+This function calculates the items in the cart with additional checks to check for and apply discounts.
+
+##### Parameters
+* ```basePrice``` - Records the Base Price of the product.
+* ```discount``` - Pulls the discount object from the ```inventoryData``` for each product.
+* ```quantity``` - of the products.
+* ```idx``` - The index used to track the product(s) in the cart.
+
+##### Output
+Itemised total of each product as an Integer.
+
+#### calculateSubTotal
+
+```js
+calculateSubTotal(cart)
+```
+
+##### Description
+
+This function adds the total value of each item in the itemised cart.
+
+##### Parameters
+* ```cart``` - Object containing itemised shopping cart.
+
+#### Output
+Subtotal of the cart as an Integer.
+
+#### initCheckout
+
+```js
+initCheckout(cart)
+```
+
+##### Description
+
+This function processes the user's cart based on the inventory data and then prints a receipt to the console with the itemised total and subtotal.
+
+##### Parameters
+* ```cart``` - Array of objects containing the user's cart.
+
+##### Output
+Receipt of the shopping order (console output).
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

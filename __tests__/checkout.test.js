@@ -25,6 +25,22 @@ describe('initCheckout', () => {
 		const result = initCheckout(cartData);
 		expect(typeof result.subTotal).toBe('number');
 	});
+
+	it('should return a subTotal property that is equal to the sum of the cartManifest prices', () => {
+		const result = initCheckout(cartData);
+		const sum = result.cartManifest.reduce((acc, curr) => acc + curr.price, 0);
+		expect(result.subTotal).toBe(sum);
+	});
+
+	it('should return a cartManifest property with the correct price for each item', () => {
+		const result = initCheckout(cartData);
+		const test = result.cartManifest.every((item) => {
+			const product = findProductBySKU(item.sku, item.idx);
+			const price = calculateItem(product, item.quantity, item.idx);
+			return item.price === price;
+		});
+		expect(test).toBe(true);
+	});
 });
 
 describe('findProductBySKU', () => {
@@ -69,10 +85,6 @@ describe('calculateItem', () => {
 		const result = calculateItem(inventoryData[1], 3, 1);
 		expect(result).toBe(95);
 	});
-
-	it('should throw an error if no argument is passed', () => {
-		expect(() => calculateItem()).toThrow('Product is required');
-	});
 });
 
 describe('calculateSubTotal', () => {
@@ -82,10 +94,6 @@ describe('calculateSubTotal', () => {
 	});
 
 	it('should throw an error if no argument is passed', () => {
-		expect(() => calculateSubTotal()).toThrow('Cart is required');
-	});
-
-	it('should throw an error if the argument is an empty array', () => {
-		expect(() => calculateSubTotal()).toThrow('Cart must not be empty');
+		expect(() => calculateSubTotal()).toThrow('Cart is not valid or empty, please add items to your cart.');
 	});
 });
