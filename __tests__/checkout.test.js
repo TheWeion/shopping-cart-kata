@@ -4,11 +4,91 @@
 // ─────────────────────────────────────────────────────────────────────────────
 
 // ─── Imports ─────────────────────────────────────────────────────────────────
+import {jest} from '@jest/globals';
 import { initCheckout, findProductBySKU, calculateItem, calculateSubTotal } from '../helpers/checkout.js';
 import { cartData } from '../db/cart.js';
 import { inventoryData } from '../db/inventory.js';
 
 describe('initCheckout', () => {
+	// Mock cartData object for testing
+
+	// using mock data check if product A's subTotal is £140.00
+	it('should return £140.00 for product A', () => {
+		// Mock cartData object for testing
+		const mockCartData = [
+			{
+				"code": "A",
+				"quantity": 2
+			},
+			{
+				"code": "B",
+				"quantity": 3
+			},
+			{
+				"code": "C",
+				"quantity": 1
+			},
+			{
+				"code": "D",
+				"quantity": 2
+			},
+			{
+				"code": "A",
+				"quantity": 1
+			}
+		];
+
+		expect(initCheckout(mockCartData)).toEqual({
+			"cartManifest": [
+				{
+					"basePrice": 50, 
+					"code": "A", 
+					"discount": {
+						"minQuantity": 3, 
+						"price": 140
+					}, 
+					"price": 140, 
+					"quantity": 3, 
+					"sku": "A"
+				}, 
+				{
+					"basePrice": 35, 
+					"code": "B", 
+					"discount": {
+						"minQuantity": 2, 
+						"price": 60
+					}, 
+					"price": 95, 
+					"quantity": 3, 
+					"sku": "B"
+				}, 
+				{
+					"basePrice": 25, 
+					"code": "C", 
+					"discount": {
+						"minQuantity": null, 
+						"price": null
+					}, 
+					"price": 25, 
+					"quantity": 1, 
+					"sku": "C"
+				}, 
+				{
+					"basePrice": 12, 
+					"code": "D", 
+					"discount": {
+						"minQuantity": null, 
+						"price": null
+					}, 
+					"price": 24, 
+					"quantity": 2, 
+					"sku": "D"
+				}
+			], 
+			"subTotal": 284
+		});
+	});
+
 	it('should return an object with two properties', () => {
 		const result = initCheckout(cartData);
 		expect(typeof result).toBe('object');

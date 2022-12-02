@@ -52,6 +52,36 @@ export function calculateItem({ basePrice, discount }, quantity, idx) {
 	}
 }
 
+export function aggrCart(cartData) {
+	try {
+		let cart = [];
+
+		cartData.forEach((item, _idx) => {
+			// Check if item is already in cart
+			let itemInCart = cart.find((cartItem) => cartItem.code === item.code);
+	
+			if (itemInCart) {
+				// If item is already in cart, increment quantity
+				itemInCart.quantity += item.quantity;
+			} else {
+				// If item is not in cart, add it
+				cart.push({
+					code: item.code,
+					quantity: item.quantity,
+				});
+			}
+			_idx += 1;
+		});
+		return cart;
+	} catch (error) {
+		if (error instanceof TypeError) {
+			throw new TypeError(`Error at index ${_idx}: Cart must be an array`);
+		} else {
+			throw new Error(`Error at index ${_idx}: Cart is not valid`);
+		}
+	}
+}
+
 export function calculateSubTotal(cart) {
 	if (!cart) { throw new Error("Cart is not valid or empty, please add items to your cart."); }
 	try {
@@ -73,7 +103,9 @@ export function initCheckout(cart) {
 		currency: 'GBP',
 	});
 	try {
-		let cartManifest = cart.map((item, idx) => {
+		// Aggregate cart
+		const filteredCart = aggrCart(cart);
+		let cartManifest = filteredCart.map((item, idx) => {
 			const productDetails = findProductBySKU(item.code, idx);
 			const price = calculateItem(productDetails, item.quantity, idx);
 			return { ...item, ...productDetails, price };

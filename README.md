@@ -54,6 +54,7 @@
           <ul>
             <li><a href="#findproductbysku">findProductBySKU</a></li>
             <li><a href="#calculateitem">calculateItem</a></li>
+            <li><a href="#aggrcart">aggrCart</a></li>            
             <li><a href="#calculatesubtotal">calculateSubTotal</a></li>
             <li><a href="#initcheckout">initCheckout</a></li>
           </ul>
@@ -202,7 +203,6 @@ findProductBySKU(sku, idx)
 ```
 
 ##### Description
-
 This function will locate each product from it's SKU and compare it to the ```code``` object located in the cart dataset.
 
 ##### Parameters
@@ -216,10 +216,10 @@ calculateItem({ basePrice, discount }, quantity, idx)
 ```
 
 ##### Description
-
 This function calculates the items in the cart with additional checks to check for and apply discounts.
 
 ##### Parameters
+
 * ```basePrice``` - Records the Base Price of the product.
 * ```discount``` - Pulls the discount object from the ```inventoryData``` for each product.
 * ```quantity``` - of the products.
@@ -228,6 +228,21 @@ This function calculates the items in the cart with additional checks to check f
 ##### Output
 Itemised total of each product as an Integer.
 
+#### aggrCart
+
+```js
+aggrCart(cartData)
+```
+
+##### Description
+This function will check the cartData for any duplicate products and aggregate them into a single object.
+
+##### Parameters
+* ```cartData``` - Object containing itemised shopping cart.
+
+##### Output
+Object containing aggregated shopping cart.
+
 #### calculateSubTotal
 
 ```js
@@ -235,7 +250,6 @@ calculateSubTotal(cart)
 ```
 
 ##### Description
-
 This function adds the total value of each item in the itemised cart.
 
 ##### Parameters
@@ -251,7 +265,6 @@ initCheckout(cart)
 ```
 
 ##### Description
-
 This function processes the user's cart based on the inventory data and then prints a receipt to the console with the itemised total and subtotal.
 
 ##### Parameters
@@ -266,7 +279,6 @@ Receipt of the shopping order (console output).
 
 <!-- LICENSE -->
 ## License
-
 Distributed under the GNU License. See `LICENSE` for more information.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
